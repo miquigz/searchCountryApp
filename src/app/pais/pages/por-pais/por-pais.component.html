@@ -1,16 +1,16 @@
-<p>por-pais works!</p>
 <div class="grid">
     <div class="col-span-auto">
         <app-pais-input 
         (onEnter)="buscar( $event )"
         (onDebounce)="sugerencias($event)"
+        placeholder="Buscar por Pais..."
         ></app-pais-input>
     </div>
 </div>
 
 <hr>
 
-<div *ngIf="this.hayError" class="bg-red">
+<div *ngIf="this.hayError" class="text-xs sm:text-xl m-4 p-4 text-white">
     <p>No se encontro nada con el termino: {{termino}}</p>
 </div>
 

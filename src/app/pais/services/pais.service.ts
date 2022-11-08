@@ -22,6 +22,10 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
+  getPaisAlphaCode(id:string):Observable<Country>{//Retornamos un solo Country
+    const url = `${this.apiUrl}/alpha/${ id }`;
+    return this.http.get<Country>(url);
+  }
 
 
 }

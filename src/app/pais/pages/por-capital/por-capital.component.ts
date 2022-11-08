@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -8,16 +8,13 @@ import { PaisService } from '../../services/pais.service';
   styles: [
   ]
 })
-export class PorCapitalComponent implements OnInit {
+export class PorCapitalComponent {
 
   hayError:boolean = false;
   termino: string= '';
   paises:Country[] = [];
 
   constructor( private paisService:PaisService ) { }
-
-  ngOnInit(): void {
-  }
 
   buscar( termino:string ){
     this.hayError = false;

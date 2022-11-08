@@ -1,1 +1,21 @@
-<p>ver-pais works!</p>
+<div class="text-white" *ngIf="!pais else divPais">
+    <p>Espere por favor...</p>
+</div>
+
+<ng-template #divPais>
+    <div class="bg-gradient-to-r from-slate-600 to-zinc-700/75
+    flex content-center items-center flex-col text-white my-4 py-2 border-2 border-stone-800">
+        <h2 class="text-xl md:text-2xl lg:text-4xl">Pais: </h2>
+        <p>{{pais.name.common}}</p>
+        <small>{{pais.capital}}</small>
+
+        <img class="border-2 border-stone-800/75 m-4"
+        [src]="pais.flags.png" [alt]="pais.name.common">
+        <p>{{pais.region}}</p>
+        <p>{{pais.continents}}</p>
+        <p>Poblacion:  {{pais.population | number}}</p>
+        <!-- <p>Idioma: {{pais.languages}}</p> -->
+        <img class="w-20 h-20 lg:w-32 lg:h-32 mt-4"
+        *ngIf="pais.coatOfArms" [src]="pais.coatOfArms.svg">
+    </div>
+</ng-template>

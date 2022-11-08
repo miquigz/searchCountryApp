@@ -1,10 +1,11 @@
-<h1 class="bg-cyan-500 hover:bg-cyan-600">hi</h1>
-<div class="grid grid-cols-12">
-
-  <app-sidebar class="col-span-3"></app-sidebar>
-
-  <div class="col-span-9">
-    <router-outlet></router-outlet>
-  </div>
+<app-navbar></app-navbar>
+<div class="bg-gradient-to-r from-gray-700 via-gray-900 to-black min-h-screen">
+  <div class="grid grid-cols-12 ">
+    <app-sidebar class="col-span-12 sm:col-span-3 md:col-span-3 lg:col-span-3"></app-sidebar>
   
+    <div class="col-span-12 sm:col-span-9 md:col-span-9 lg:col-span-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
+

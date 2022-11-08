@@ -1,24 +1,10 @@
 <h1 class="bg-cyan-500 hover:bg-cyan-600">hi</h1>
 <div class="grid grid-cols-12">
-  <div class="col-span-3 mt-4 mx-2
-    border-4 rounded-md p-2 border-indigo-600/50
-    bg-stone-800">
-      <h2 class="text-white text-center mb-2">Busquedas</h2>
-      <hr>
-        <ul class="mt-1 col-span-2">
-          <li class="mt-1 p-2 rounded-md text-white text-sm	
-          bg-gradient-to-r from-slate-600 to-zinc-700/75 list-none select-none
-          border-2 border-indigo-300/50">Buscar pais</li>
-          <li class=" mt-1 p-2 rounded-md text-white text-sm	
-          bg-gradient-to-r from-slate-600 to-zinc-700/75 select-none list-none
-          border-2 border-indigo-300/50">Buscar por region</li>
-          <li class="mt-1 p-2 rounded-md text-white text-sm	
-          bg-gradient-to-r from-slate-600 to-zinc-700/75 list-none select-none
-          border-2 border-indigo-300/50">Buscar por capital</li>
-        </ul>
-  </div>
+
+  <app-sidebar class="col-span-3"></app-sidebar>
 
   <div class="col-span-9">
-
+    <router-outlet></router-outlet>
   </div>
+  
 </div>

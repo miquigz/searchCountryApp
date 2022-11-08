@@ -10,7 +10,7 @@ import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { PorLenguajeComponent } from './pages/por-lenguaje/por-lenguaje.component';
 import { PaisTablaComponent } from './components/pais-tabla/pais-tabla.component';
 import { PaisInputComponent } from './components/pais-input/pais-input.component';
-import { PorMonedaComponent } from './por-moneda/por-moneda.component';
+import { PorMonedaComponent } from './pages/por-moneda/por-moneda.component';
 
 @NgModule({
   declarations: [

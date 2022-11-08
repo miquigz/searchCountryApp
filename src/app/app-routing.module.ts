@@ -6,7 +6,7 @@ import { PorLenguajeComponent } from './pais/pages/por-lenguaje/por-lenguaje.com
 import { PorPaisComponent } from './pais/pages/por-pais/por-pais.component';
 import { PorRegionComponent } from './pais/pages/por-region/por-region.component';
 import { VerPaisComponent } from './pais/pages/ver-pais/ver-pais.component';
-import { PorMonedaComponent } from './pais/por-moneda/por-moneda.component';
+import { PorMonedaComponent } from './pais/pages/por-moneda/por-moneda.component';
 
 const routes:Routes = [
     {

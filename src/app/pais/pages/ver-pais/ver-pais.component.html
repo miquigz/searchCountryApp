@@ -13,9 +13,19 @@
         [src]="pais.flags.png" [alt]="pais.name.common">
         <p>{{pais.region}}</p>
         <p>{{pais.continents}}</p>
-        <p>Poblacion:  {{pais.population | number}}</p>
-        <!-- <p>Idioma: {{pais.languages}}</p> -->
+        <p>Poblacion: <span class="text-indigo-400">{{pais.population | number}}</span></p>
         <img class="w-20 h-20 lg:w-32 lg:h-32 mt-4"
         *ngIf="pais.coatOfArms" [src]="pais.coatOfArms.svg">
+        <div class="mt-2">
+            <h2 class="text-center text-indigo-400 my-2">Traducciones</h2>
+            <ul class="flex justify-around content-around flex-wrap">
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['spa'].official}}</li>
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['jpn'].official}}</li>
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['nld'].official}}</li>
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['hrv'].official}}</li>
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['est'].official}}</li>
+                <li class="mx-2 text-xs sm:text-md lg:text-lg">{{pais.translations['swe'].official}}</li>
+            </ul>
+        </div>
     </div>
 </ng-template>

@@ -1,13 +1,9 @@
 <p>por-pais works!</p>
 <div class="grid">
     <div class="col-span-auto">
-        <form (ngSubmit)="buscar()" action="" autocomplete="off">
-            <input type="text"
-            name="termino"
-            [(ngModel)]="termino"
-            placeholder="buscar por pais."
-            class="text-white">
-        </form>
+        <app-pais-input
+        (onEnter)="buscar( $event )">
+        </app-pais-input>
     </div>
 </div>
 
@@ -17,26 +13,8 @@
     <p>No se encontro nada con el termino: {{termino}}</p>
 </div>
 
-<div>
+<div *ngIf="paises.length > 0">
     <div>
-        <table class="table-auto">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Bandera</th>
-                    <th>Nombre</th>
-                    <th>Poblacion</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Bandera</td>
-                    <td>nombre</td>
-                    <td>99999</td>
-                    <td><a href="#">Ver mas</a></td>
-                </tr>
-            </tbody>
-        </table>
+        <app-pais-tabla [paises]="this.paises"></app-pais-tabla>
     </div>
 </div>

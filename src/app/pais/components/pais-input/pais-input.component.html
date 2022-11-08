@@ -3,6 +3,7 @@
     <input type="text"
     name="termino"
     [(ngModel)]="termino"
+    (input)="teclaPresionada($event)"
     placeholder="buscar por pais."
     class="text-white">
 </form>

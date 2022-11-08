@@ -35,6 +35,5 @@ export class PorPaisComponent {
     this.hayError = false;
     //TODO: Generar sugerencias
   }
-
-
 }
+

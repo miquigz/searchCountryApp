@@ -2,7 +2,7 @@
     <div class="col-span-auto">
         <app-pais-input 
         (onEnter)="buscar( $event )"
-        placeholder="Buscar por lenguaje... (Only searches in Eng)"
+        placeholder="Buscar por moneda..."
         ></app-pais-input>
     </div>
 </div>
@@ -10,7 +10,7 @@
 <hr>
 
 <div *ngIf="this.hayError" class="text-xs sm:text-xl m-4 p-4 text-white">
-    <p>No se encontro nada con el termino: {{termino}}</p>
+    <p>No se encontro nada con la moneda: {{termino}}</p>
 </div>
 
 <div *ngIf="paises.length > 0">

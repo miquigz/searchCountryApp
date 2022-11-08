@@ -22,10 +22,28 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
+  buscarPaisLanguage(lang:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/lang/${ lang }`;
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarPaisMoneda(moneda:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/currency/${ moneda }`;
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarPaisRegion(continent:string):Observable<Country[]>{
+    const url = `${this.apiUrl}/region/${ continent }`;
+    return this.http.get<Country[]>(url);
+  }
+
   getPaisAlphaCode(id:string):Observable<Country>{//Retornamos un solo Country
     const url = `${this.apiUrl}/alpha/${ id }`;
     return this.http.get<Country>(url);
   }
+
+
+
 
 
 }

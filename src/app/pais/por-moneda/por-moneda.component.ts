@@ -1,12 +1,13 @@
-import { Component} from '@angular/core';
-import { Country } from '../../interfaces/pais.interface';
-import { PaisService } from '../../services/pais.service';
+import { Component } from '@angular/core';
+import { Country } from '../interfaces/pais.interface';
+import { PaisService } from '../services/pais.service';
 
 @Component({
-  selector: 'app-por-region',
-  templateUrl: './por-region.component.html'
+  selector: 'app-por-moneda',
+  templateUrl: './por-moneda.component.html'
 })
-export class PorRegionComponent{
+export class PorMonedaComponent {
+
   hayError:boolean = false;
   termino: string= '';
   paises:Country[] = [];
@@ -17,7 +18,7 @@ export class PorRegionComponent{
     this.hayError = false;
     this.termino = termino;
     
-    this.paisService.buscarPaisRegion(this.termino)
+    this.paisService.buscarPaisMoneda(this.termino)
     .subscribe({
       next: (paises) =>{  
         console.log(paises);

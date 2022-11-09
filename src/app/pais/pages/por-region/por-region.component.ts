@@ -1,4 +1,5 @@
 import { Component} from '@angular/core';
+import { Observable } from 'rxjs';
 import { Country } from '../../interfaces/pais.interface';
 import { PaisService } from '../../services/pais.service';
 
@@ -7,24 +8,29 @@ import { PaisService } from '../../services/pais.service';
   templateUrl: './por-region.component.html'
 })
 export class PorRegionComponent{
-  hayError:boolean = false;
-  termino: string= '';
-  paises:Country[] = [];
+
+  regiones:string[] = ['africa', 'americas', 'asia', 'europe', 'oceania']
+  regionActiva: string = '';
+  paises:Country[] = []
 
   constructor(private paisService:PaisService) { }
 
-  buscar( termino:string ){
-    this.hayError = false;
-    this.termino = termino;
-    
-    this.paisService.buscarPaisRegion(this.termino)
+  activarRegion( region:string ){
+    if (this.regionActiva !== region){
+      this.regionActiva = region;
+      this.buscarRegion(this.regionActiva);
+    }
+  }
+
+  buscarRegion(region:string){
+    this.paisService.buscarPaisRegion(region)
     .subscribe({
-      next: (paises) =>{  
-        console.log(paises);
-        this.paises = paises;
+      next: (regiones) => {
+        this.paises = regiones;
       },
-      error: (e)=>{ this.hayError = true; this.paises = [];},
-      complete: ()=>{ console.log("completado buscarPais"); }
+      error: (err) =>{ 
+        console.log("error en buscarRegion", err); return [];
+      }
     })
   }
 

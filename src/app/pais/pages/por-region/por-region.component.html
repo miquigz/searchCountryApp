@@ -1,20 +1,24 @@
-<div class="grid">
+<div class="grid text-white">
     <div class="col-span-auto">
-        <app-pais-input 
-        (onEnter)="buscar( $event )"
-        placeholder="Buscar por region..."
-        ></app-pais-input>
+        <div class="min-h-[4rem] text-center md:text-start">
+            <h3 class="text-md sm:text-xl my-1">Seleccione su Region a buscar.</h3>
+            <small class="text-indigo-400" *ngIf="regionActiva">Region "<span class="text-indigo-200">{{regionActiva | titlecase}}</span>" seleccionada</small>
+        </div>
+        <ul class="flex justify-center flex-wrap">
+            <li *ngFor="let region of regiones"
+            class="border-2 border-white rounded mb-2 select-none cursor-pointer
+            text-sm sm:text-md md:text-lg py-1 px-0.5 sm:p-2 mx-0.5 sm:mx-2"
+            [ngClass]="{
+                'border-indigo-400 text-indigo-300': region === regionActiva
+            }"
+            (click)="activarRegion(region)"
+            >{{region | titlecase}}</li>
+        </ul>
     </div>
 </div>
 
-<hr>
-
-<div *ngIf="this.hayError" class="text-xs sm:text-xl m-4 p-4 text-white">
-    <p>No se encontro nada con el termino: {{termino}}</p>
-</div>
-
 <div *ngIf="paises.length > 0">
-    <div>
+    <div class="flex justify-center">
         <app-pais-tabla [paises]="this.paises"></app-pais-tabla>
     </div>
 </div>

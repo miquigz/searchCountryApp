@@ -1,5 +1,5 @@
-<p class="py-4 text-center sm:text-start
-text-indigo-200 sm:px-4 text-xs sm:text-md lg:text-lg">Total de Paises encontrados: {{paises.length}}</p>
+<p class="py-4 text-center sm:text-start animate__animated animate__zoomIn animate__faster
+text-indigo-200 sm:px-4 text-xs sm:text-md lg:text-lg animate__animated animate__zoomIn animate__faster">Total de Paises encontrados: {{paises.length}}</p>
 <table class="table-auto bg-gradient-to-r from-slate-600 to-zinc-700/75 text-white">
     <thead>
         <tr class="bg-stone-900 text-white p-2 rounded border-2 border-indigo-500/50 text-xs sm:text-md lg:text-lg">
@@ -12,7 +12,7 @@ text-indigo-200 sm:px-4 text-xs sm:text-md lg:text-lg">Total de Paises encontrad
     </thead>
     <tbody>
         <tr *ngFor="let pais of paises; index as i"
-        class="border-2 border-stone-900/75 my-4">
+        class="border-2 border-stone-900/75 my-4 animate__animated animate__zoomIn animate__faster">
             <td class="text-indigo-200 mx-2 sm:p-2 bg-stone-900 text-xs sm:text-md lg:text-lg">{{i + 1}}</td>
             <td class="px-2 md:px-4 lg:px-8">
                 <img class="w-8 md:w-16 md:h-12 lg:w-20"

@@ -1,6 +1,6 @@
 <form 
-class=" p-2 flex justify-center lg:justify-start my-4 rounded
-border-2 rounded-md p-2 border-indigo-white
+class=" flex justify-center pt-2 lg:justify-start mt-4 rounded
+border rounded-md px-2
 bg-gradient-to-r from-slate-600 to-zinc-700/75"
 (ngSubmit)="buscar()" action="" autocomplete="off">
     <input type="text"
@@ -9,5 +9,5 @@ bg-gradient-to-r from-slate-600 to-zinc-700/75"
     (input)="teclaPresionada($event)"
     [placeholder]="placeholder" 
     class=" sm:w-6/12 w-full text-xs sm:text-md lg:text-xl text-indigo-300
-    text-white bg-stone-900 p-2 rounded border-2 caret-indigo-500 pointer-events-auto">
+    text-white bg-stone-900 p-2 rounded caret-indigo-500 pointer-events-auto">
 </form>

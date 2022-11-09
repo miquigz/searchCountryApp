@@ -10,8 +10,8 @@ export class PaisService {
 
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
-  get httpParams(){
-    return new HttpParams().set( 'fields', 'name,capital,population,flags,cca2')
+  get httpParams(){//todo: refactor, currencies languages quitar
+    return new HttpParams().set( 'fields', 'name,capital,population,flags,cca2,currencies,languages')
   }
 
 

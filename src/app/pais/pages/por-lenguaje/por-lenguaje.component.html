@@ -3,13 +3,24 @@
     <div class="col-span-auto">
         <app-pais-input 
         (onEnter)="buscar( $event )"
+        (onDebounce)="sugerencias($event)"
         placeholder="Buscar por lenguaje... (Only searches in Eng)"
         ></app-pais-input>
     </div>
 </div>
-
-
-<hr>
+<ul *ngIf="termino && mostrarSugerencias"
+class="flex flex-col justify-center lg:justify-start px-2 bg-transparent absolute w-8/12 z-50">
+    <li *ngFor="let pais of paisesSugeridos"
+    (click)="buscar(termino)"
+    class="sm:w-6/12 w-full text-xs sm:text-md lg:text-xl text-indigo-300/75
+    bg-stone-700/50 p-2 caret-indigo-500 pointer-events-auto drop-shadow-xl
+    hover:bg-stone-800/75 hover:text-indigo-500 font-semibold hover:bg-stone-900/75 cursor-pointer">
+    {{pais.languages}}</li>
+    <li (click)="buscarSugerido(termino)"
+    class="sm:w-6/12 w-full text-xs sm:text-md lg:text-xl text-indigo-300/75
+    bg-stone-700/50 p-2 caret-indigo-500 pointer-events-auto drop-shadow-xl
+    hover:bg-stone-800/75 hover:text-indigo-500 font-semibold hover:bg-stone-900/75 cursor-pointer">Buscar:" <span class="text-indigo-200">{{termino}}</span>"</li>
+</ul>
 
 <div *ngIf="this.hayError" class="text-xs sm:text-xl m-4 p-4 text-white">
     <p>No se encontro nada con el termino: {{termino}}</p>

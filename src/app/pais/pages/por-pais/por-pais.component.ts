@@ -14,7 +14,7 @@ export class PorPaisComponent {
   termino: string= '';
   paises:Country[] = [];
   paisesSugeridos: Country[] = [];
-  mostrarSugerencias = true;
+  mostrarSugerencias = false;
 
 
   constructor(private paisService:PaisService) { }
@@ -22,7 +22,7 @@ export class PorPaisComponent {
   buscar( termino:string ){
     this.hayError = false;
     this.termino = termino; //Termino pasa a ser el termino argumento.
-    
+    this.mostrarSugerencias = false;
     this.paisService.buscarPais(this.termino)
     .subscribe({
       next: (paises) =>{  

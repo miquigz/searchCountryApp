@@ -11,6 +11,8 @@ export class PorLenguajeComponent {
   hayError:boolean = false;
   termino: string= '';
   paises:Country[] = [];
+  paisesSugeridos: Country[] = [];
+  mostrarSugerencias = true;
 
   constructor(private paisService:PaisService) { }
 
@@ -29,4 +31,29 @@ export class PorLenguajeComponent {
     })
   }
 
+  sugerencias(termino:string){
+    this.hayError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+    this.paisService.buscarPaisLanguage( termino )
+    .subscribe({
+      next: (paises)=>{ 
+        let auxPaises:Country[] = paises;
+        auxPaises.forEach( (ele)=>{
+          if (ele.languages){
+            ele.languages = (Object.values(ele.languages)[0]);
+          }
+        })
+        console.log(auxPaises);
+        this.paisesSugeridos = auxPaises.splice(0, 1);
+      },
+      error: (err)=> this.paisesSugeridos = []
+    })
+  }
+
+  buscarSugerido(termino:string){
+    this.mostrarSugerencias = false;
+    this.termino = termino;
+    this.buscar(termino);
+  }
 }

@@ -13,13 +13,16 @@ export class PorCapitalComponent {
   hayError:boolean = false;
   termino: string= '';
   paises:Country[] = [];
+  mostrarSugerencias = false;
+  paisesSugeridos:Country[] = []
+
 
   constructor( private paisService:PaisService ) { }
 
   buscar( termino:string ){
     this.hayError = false;
+    this.mostrarSugerencias = false;
     this.termino = termino; //Termino pasa a ser el termino argumento.
-    
     this.paisService.buscarCapital(this.termino)
     .subscribe({
       next: (paises) =>{  
@@ -31,6 +34,21 @@ export class PorCapitalComponent {
     })
   }
 
+  sugerencias(termino:string){
+    this.hayError = false;
+    this.termino = termino;
+    this.mostrarSugerencias = true;
+    this.paisService.buscarCapital( termino )
+    .subscribe({
+      next: (paises)=> this.paisesSugeridos = paises.splice(0, 4),
+      error: (err)=> this.paisesSugeridos = []
+    })
+  }
 
+  buscarSugerido(termino:string){
+    this.mostrarSugerencias = false;
+    this.termino = termino;
+    this.buscar(termino);
+  }
 
 }
